@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./SRC/CSS/style.css">
+    <title>Churrascômetro</title>
+
+</head>
+
+<body>
+    <section>
+        <article class="site">
+            <div id="churrascometro">
+                <img  id="imgChurrasco" src="./SRC/images/new-design-designify (1).png" alt="">
+               
+            </div>
+            
+            <div id="inputs">
+                <div>
+                    <input type="number" required id="adultos" name="adultos"><span class="spanadultos">Adultos</span>    
+                </div>
+                <div>
+                    <input type="number" required id="criancas" name="crianças"><span class="spancriancas">Crianças</span>
+                </div>
+                <div>
+                    <input type="number" required id="duracao" name="duracao"><span class="spanduracao">Horas de Churrasco</span>
+                </div>
+
+                
+                
+                
+                <button onclick="calcular()">Calcular</button>
+            </div>
+                    
+
+        </article>
+        
+        <article id="resultado">
+
+        </article>
+
+    </section>
+    <div id="autor">
+        Desenvolvido por <a href="https://github.com/Eldio-Neto" target="_blank">Eldio Neto</a>
+    </div>
+
+
+</body>
+<script src="./SRC/JS/script.js"></script>
+
+</html>
