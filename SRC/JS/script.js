@@ -10,72 +10,70 @@ var resultado = document.getElementById("resultado")
 var carne;
 var refri;
 var cerv;
-const carne1 = 0.4;       // kg de carne
-const carne2 = 0.65;      // kg de carne
-const refri1 = 1.0;       // litros de refri
-const refri2 = 1.5;       // litros de refri
-const cerv1 = 1.2         // litros de cerveja 
-const cerv2 = 2.0         // litros de cerveja 
+const carne1 = 0.4; // kg de carne
+const carne2 = 0.65; // kg de carne
+const refri1 = 1.0; // litros de refri
+const refri2 = 1.5; // litros de refri
+const cerv1 = 1.2 // litros de cerveja 
+const cerv2 = 2.0 // litros de cerveja 
 
 function calcularCarne() {
 
     
-    if (inputhoras.value >= 6) {
+
+        if (inputhoras.value >= 6) {
 
 
-        let adultos = inputadultos.value;
-        let criancas = inputcriancas.value;
+            let adultos = inputadultos.value;
+            let criancas = inputcriancas.value;
 
 
-        carne = carne2 * adultos + (carne2 / 2 * criancas);
+            carne = carne2 * adultos + (carne2 / 2 * criancas);
 
-        return carne 
-        
-    }
+            return carne
 
-    else {
+        } else {
 
-        let adultos = inputadultos.value;
-        let criancas = inputcriancas.value;
+            let adultos = inputadultos.value;
+            let criancas = inputcriancas.value;
 
 
-        carne = carne1 * adultos + (carne1 / 2 * criancas);
+            carne = carne1 * adultos + (carne1 / 2 * criancas);
 
-        return carne 
-    }
+            return carne
+        }
 
-    
     
 
 }
+
 function calcularCerveja() {
 
-    if (inputhoras.value >= 6) {
+    
+        if (inputhoras.value >= 6) {
 
 
-        let adultos = inputadultos.value
-       
-
-
-        cerv = cerv2 * adultos 
-
-        return cerv 
-
-    }
-
-    else {
-
-        let adultos = inputadultos.value
-        
-
-
-        cerv = cerv1 * adultos 
-
-        return cerv 
-    }
-
-
+            let adultos = inputadultos.value
+    
+    
+    
+            cerv = cerv2 * adultos
+    
+            return cerv
+    
+        } else {
+    
+            let adultos = inputadultos.value
+    
+    
+    
+            cerv = cerv1 * adultos
+    
+            return cerv
+        }
+    
 }
+
 function calcularRefrigerante() {
 
     if (inputhoras.value >= 6) {
@@ -87,11 +85,9 @@ function calcularRefrigerante() {
 
         refri = refri2 * adultos + (refri2 / 2 * criancas);
 
-        return refri 
+        return refri
 
-    }
-
-    else {
+    } else {
 
         let adultos = inputadultos.value
         let criancas = inputcriancas.value
@@ -99,27 +95,40 @@ function calcularRefrigerante() {
 
         refri = refri1 * adultos + (refri1 / 2 * criancas);
 
-        return refri 
+        return refri
     }
 }
-function showdisplay(){
+
+function showdisplay() {
     resultado.style.display = "block"
 }
+
 function calcular() {
-    calcularCarne()
-    calcularCerveja()
-    calcularRefrigerante()
-    showdisplay()
-    inputadultos.value = ""
-    inputcriancas.value = ""
-    inputhoras.value = ""
 
-    resultado.innerHTML = `<p> <img src="./SRC/images/meat.png" alt=""> ${Math.ceil(carne)} kg de carne  </p>`
-    resultado.innerHTML += `<p> <img src="./SRC/images/beer.png" alt=""> ${Math.ceil(cerv)} L de cerveja </p>`
-    resultado.innerHTML += `<p> <img src="./SRC/images/soda.png" alt=""> ${Math.ceil(refri)} L de refrigerante/água </p>`
-
+    if(validarCampos()){
+        calcularCarne()
+        calcularCerveja()
+        calcularRefrigerante()
+        showdisplay()
+        inputadultos.value = ""
+        inputcriancas.value = ""
+        inputhoras.value = ""
     
+        resultado.innerHTML = `<p> <img src="./SRC/images/meat.png" alt=""> ${Math.ceil(carne)} kg de carne  </p>`
+        resultado.innerHTML += `<p> <img src="./SRC/images/beer.png" alt=""> ${Math.ceil(cerv)} L de cerveja </p>`
+        resultado.innerHTML += `<p> <img src="./SRC/images/soda.png" alt=""> ${Math.ceil(refri)} L de refrigerante/água </p>`
+    }else{
+        alert('Coloque Números Validos')
+        inputadultos.value = ""
+        inputcriancas.value = ""
+        inputhoras.value = ""
+    }
 }
-
-
-
+function validarCampos(){
+    if(inputadultos.value>0 && inputcriancas.value>0 && inputhoras.value >0 ){
+        return true
+    }
+    else{
+        return false
+    }
+}
